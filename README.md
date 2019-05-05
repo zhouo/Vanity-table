@@ -1,2 +1,7 @@
-# Vanity-table
-Vanity table is a web application designed for girls to manage their skincare and cosmetic products.
+Hello!
+
+You need to run:
+
+meteor npm install 
+
+before you can launch the app.

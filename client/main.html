@@ -1,0 +1,62 @@
+<body>
+    <script>
+        $(document).ready(function(){
+        $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+            });
+        });
+    </script>
+</body>
+
+<template name="ApplicationLayout">
+    <div class="container">
+        <a href="/">Home</a>
+        {{>header}}
+        {{>topnav}}
+        <!-- iron router will select what to render in place of yield-->
+        {{> yield }}
+    </div>
+</template>
+
+
+
+<template name="header">
+    <h1 align="center">Welcome to Vanity Table</h1>
+</template>
+
+<!-- <template name="showproduct">
+
+</template> -->
+
+<template name="home">
+    <div class="container container fluid">
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-4 col-sm-2" height="200" align="center">
+                <p> {{name}} </p>
+                <p> {{brand}}</p>
+                <br/>
+            </div>
+            {{/each}}
+        </div>
+    </div>    
+</template>
+
+<template name="showCategoryproducts">
+    <h1> Category: {{category}}</h1>
+    <div class="container container fluid">
+        <div class="row">
+            {{#each this}}
+            <div class="col-md-4 col-sm-2" height="200" align="center">
+                <p> {{name}} </p>
+                <p> {{brand}}</p>
+                <br/>
+            </div>
+            {{/each }}
+        </div>
+    </div>    
+</template>
+
+

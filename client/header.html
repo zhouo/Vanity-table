@@ -1,0 +1,24 @@
+<template name ="testbar">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="nav pull-right">
+					{{> user_info}}
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</template>
+
+<template name="user_info">
+	<ul class="nav pull-right">
+		{{#if currentUser}}
+			{{>user_loggedin}}
+		{{else}}
+			{{> user_loggedout}}
+		{{/if}}
+	</ul>
+</template>
+

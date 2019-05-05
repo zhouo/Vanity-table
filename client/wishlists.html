@@ -1,0 +1,94 @@
+<template name="showWishlists">
+	{{#if currentUser}}
+    <div class="container container fluid">
+    	<div class="row">
+    		<div class="col-md-6">
+    				<h3>{{nickname}}, Your Wishlists are here</h3>
+                    <h3><button class="btn btn-default js-toggle-wishlistform">+ New wishlist</button></h3> 
+    				{{#each wishlists}}
+        			{{>WishlistItem}}
+    				{{/each}}
+    						
+    		</div>
+    		<div id="wishlistform" class="col-md-6 hidden" >
+    			{{>InsertWishlist}}
+    		</div>
+    		
+  		</div>
+    </div>
+    {{/if}}
+    
+</template>
+
+<template name="WishlistItem">
+    <!-- <div class="container container fluid">
+    	<div class="row"> -->
+    <div >
+        <h4 style="display:inline"><a href="/wishlists/{{_id}}">Wishlist:  {{name}}</a></h4>
+        <sp style="display:inline">&nbsp; ({{description}})</sp>
+        <div>
+            <button id="my-input" class="btn btn-danger js-delete-wishlist" title="Are you sure to delete? " >delete</button>
+        </div>
+    </div> 
+
+    <br/>
+</template>
+
+<template name="productsOnwishlist">
+	<div class="container container fluid">
+    	<div class="row">
+    		<div class="col-md-6">
+				<h4 style="display:inline"> Wishlist: {{name}}</h4>
+                <p style="display:inline"> ({{description}})</p>
+                <!-- <p>(Click item to show the same category 
+                product on your table)</p> -->
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3><button style="width:150px" class="btn btn-default js-toggle-addtowishlistform">+ New product</button></h3>
+                    </div>
+                    <div class="col-md-5">           
+                        <h3><button id="backtolists" style="width:150px" class="btn btn-info" title="Go back to your all wishilists " >Back to you lists</button></h3>
+                    </div>
+                </div>    
+        
+                {{#each productlist _id}}
+                <sp>{{abbre}} {{name}} {{price}} $</sp>
+                <div class="row">
+                    <div class="col-md-5">        
+                        <button class="btn btn-success js-toggle-showSamecategory" title="Click to show the same category product on your table" style="width:150px">Show your similars</button>
+                    </div>
+                    <div class="col-md-5">
+                        <button style="width:150px" class="btn btn-danger js-remove-wishlistitem" title="Click to Remove">Remove</button>
+                    </div>
+                </div>
+    			{{/each}}
+    		</div>
+    		<div id="addtowishlistForm" class="col-md-6 hidden">
+    			{{>AddtoWishlist}}	
+    		</div>
+            <div id="showSamecategory" class="col-md-6 hidden">
+                <!-- {{>SameCategory}} -->
+                <!-- <p>session id is {{sessionid}}</p> -->
+                <h3>You have {{count}} {{category}} on your tables</h3>
+                {{#each similarlist}}
+                <p>{{name}} expired on {{expiredate}}</p>
+                {{/each}}
+            </div>
+            <!-- <div id="removewishItem" class="col-md-6-hidden">
+                {{>removewishItem}}
+            </div> -->
+    	</div>
+    </div>
+
+</template>
+
+
+
+<!-- <template name="SameCategory">
+    <div>
+        <h3>You have {{count}} {{category}} on your tables</h3>
+        {{#each similarlist}}
+        <p>{{name}} expired on {{expiredate}}</p>
+        {{/each}}
+    </div>
+</template> -->

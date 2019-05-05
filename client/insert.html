@@ -1,0 +1,67 @@
+<template name="InsertTable">
+<!-- 	{{> quickForm collection="Tables" id="inserttableForm" type="method" meteormethod="insertTable"}}-->
+	{{#autoForm collection="Tables" id="inserttableForm" type="method"
+	meteormethod="insertTable"}}
+    <fieldset>
+      <legend>Add New Table</legend>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='description'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+    <button class="btn btn-danger js-hide-tableform">Close</button>
+  {{/autoForm}}
+</template>
+
+<template name="InsertWishlist">
+	{{#autoForm collection="Wishlists" id="insertwishlistForm" type="method"
+	meteormethod="insertWishlist"}}
+    <fieldset>
+      <legend>Add New Wishlist</legend>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='description'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+    <button class="btn btn-danger js-hide-wishlistform">Close</button>
+  {{/autoForm}}
+</template>
+
+
+<template name="AddtoWishlist">
+    {{#autoForm collection="Products"
+                id="addproducttowishlistForm"
+                type="method"
+                meteormethod="addtoWishlist"}}
+  	<fieldset>
+  		<legend>Add New Product to Wishlist</legend>
+    	{{> afQuickField name='name'}}
+    	{{> afQuickField name='brand'}}
+    	{{> afQuickField name='abbre'}}
+    	{{> afQuickField name='category'}}
+    	{{> afQuickField name='price'}}
+    	{{> afQuickField name='wishlistId' value=_id type="hidden"}}    
+  	</fieldset>
+  	<button type="submit" class="btn btn-primary">Add</button>
+  	<button type="reset" class="btn btn-primary">Reset</button>
+  	<button class="btn btn-danger js-hide-addtowishlistForm">Close</button>
+	{{/autoForm}}
+</template>
+
+<template name="AddtoTable">
+    {{#autoForm collection="Products" id="addproducttotableForm" type="method" meteormethod="addtoTable"}}
+  	<fieldset>
+  		<legend>Add New Product to Table</legend>
+    	{{> afQuickField name='name'}}
+    	{{> afQuickField name='brand'}}
+    	{{> afQuickField name='abbre'}}
+    	{{> afQuickField name='category'}}
+    	{{> afQuickField name='openedOn'}}
+    	{{> afQuickField name='validity'}}
+    	{{> afQuickField name='tableId' value=_id type="hidden"}}  
+  	</fieldset>
+  	<button type="submit" class="btn btn-primary">Add</button>
+  	<button type="reset" class="btn btn-primary">Reset</button>
+  	<button class="btn btn-danger js-hide-addtotableForm">Close</button>
+	{{/autoForm}}
+</template>

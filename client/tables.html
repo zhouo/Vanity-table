@@ -1,0 +1,51 @@
+<template name="showTables">
+	{{#if currentUser}}
+    <div class="container container fluid">
+    	<div class="row">
+    		<div class="col-md-6">
+    				<h3>{{nickname}}, Your tables are here</h3>
+                    <h3><button class="btn btn-default js-toggle-tableform">+ New Table</button></h3>
+    				{{#each tables}}
+        			{{>tableItem}}
+    				{{/each}}
+    							
+    		</div>
+    		<div id="tableform" class="col-md-6 hidden" >
+    			{{>InsertTable}}
+    		</div>
+    		
+  		</div>
+    </div>
+    {{/if}}
+    
+</template>
+
+<template name="tableItem">
+    <!-- <div class="container container fluid">
+    	<div class="row"> -->
+    <div display="inline-block">
+        	<h4 style="display:inline"><a href="/tables/{{_id}}">Table:{{name}}</a></h4>
+        	<sp style="display:inline"> &nbsp;({{description}})</sp>  
+        	
+    </div>         
+    <br/>
+</template>
+
+<template name="productsOntable">
+	<div class="container container fluid">
+    	<div class="row">
+    		<div class="col-md-6">
+                <h3 ><button class="btn btn-default js-toggle-addtotableform">+ New product</button></h3>
+				<h3> Table: &nbsp;{{name}}</h3>
+    			{{#each productlist _id}}
+    				<pre>{{abbre}} {{name}}   {{expiredate}}</pre>
+    			{{/each}}
+    			
+    		</div>
+    		<div id="addtotableForm" class="col-md-6 hidden">
+    			{{>AddtoTable}}	
+    		</div>
+    	</div>
+    </div>
+
+</template>
