@@ -14,39 +14,16 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Cle de Peau</a></li>
-                  <li><a href="#">Lamer</a></li>
-                  <!-- can you add another item to the dropdown? -->
-                </ul>
-              </li>
+              <li><a href="/brands">Brands</a></li>
               {{> Categorydropdown}}
               {{> user_interface}}
-                <!-- <ul class="dropdown-menu">
-                  <li><a href="#">Skincare</a></li>
-                  <li><a href="#">Makeup</a></li>
-                  can you add another item to the dropdown?
-                </ul>
-              </li>
-
-               here is the dropdown menu -->
-              <!-- the end of the dropdown menu -->
+              {{> admin_interface}}    
             </ul> 
-            <!-- <div class="nav navbar-nav">
-              <div class="navbar-text">
-                {{> user_interface}}
-              </div>
-            </div> -->
             <div class="nav navbar-right">
               <div class ="navbar-text">
                 {{>loginButtons align=right}}
               </div>  
-            </div> 
-                
-              
-            
+            </div>             
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
@@ -60,6 +37,19 @@
       <ul class="dropdown-menu">
         <li><a href="/showWishlists">Wishlist</a></li>
         <li><a href="/showTables">Vanity Table</a></li>
+      </ul>
+    </li>
+
+  {{/if}}
+</template>
+
+<template name="admin_interface">
+  {{#if checkadmin}}
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin menu <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">users</a></li>
+        <li><a href="/admin/showProducts">products</a></li>
       </ul>
     </li>
 

@@ -5,6 +5,8 @@ Wishlists = new Mongo.Collection("wishlists");
 // set up a schema controlling the allowable
 // structure of Products objects
 
+letterlist=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
 skincarelist = [{label:"Cleanser", value : "Cleanser"},
         {label:"Toner", value: "Toner"}, 
 				{label:"Serum&oil", value: "Serum&oil"},
@@ -33,6 +35,15 @@ makeupliplist = [{label:"Lip Stick", value : "Lip Stick"},
         {label:"Lipliner", value: "Lipliner"},
         ]
 Products.attachSchema(new SimpleSchema({
+    _id: {
+      type: String,
+      autoform:{
+        type: "hidden",
+        label: false
+      },
+    optional: true,
+    defaultValue: ""
+    },
     name: {
         type: String,
         label: "Name",
@@ -47,6 +58,11 @@ Products.attachSchema(new SimpleSchema({
       type: String,
       label: "Brand Abbreviation",
       max: 10
+    },
+    description:{
+      type: String,
+      label: "Description",
+      defaultValue: ""
     },
     category: {
 		  type: String,
@@ -114,16 +130,69 @@ Products.attachSchema(new SimpleSchema({
         defaultValue: '0'
     },
 
+    imgaddress: {
+    type: String,  
+    label: "Image Address",    
+    defaultValue: ""
+  },
+    createdBy:{
+      type: String,
+      autoform: {
+        type: "hidden",
+        label: false
+      },
+      optional: true,
+      defaultValue:""
+    },
+    updatedBy:{
+      type: String,
+      autoform: {
+        type: "hidden",
+        label: false
+      },
+      optional: true,
+      defaultValue:""
+    },
+    createdOn:{
+      type: Date,
+      autoform: {
+        type: "hidden",
+        label: false
+      },
+      optional: true,
+      defaultValue: new Date()
+    },
+    updatedOn:{
+      type: Date,
+      autoform: {
+        type: "hidden",
+        label: false
+      },
+      optional: true,
+      defaultValue: new Date()
+    },
+
 }));
 
 Wishlists.attachSchema(new SimpleSchema({
+  _id: {
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: ""
+  },
   name: {
     type: String,
-    label: "Name"
+    label: "Name",
+    defaultValue: ""
   },
   description: {
     type: String,
-    label: "Description"
+    label: "Description",
+    defaultValue: ""
   },
   createdOn: {
     type: Date,
@@ -189,6 +258,15 @@ Wishlists.attachSchema(new SimpleSchema({
 }))
 
 Tables.attachSchema(new SimpleSchema({
+  _id: {
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: ""
+  },
   name: {
     type: String,
     label: "Name"

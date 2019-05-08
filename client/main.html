@@ -1,19 +1,12 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <body>
-    <script>
-        $(document).ready(function(){
-        $('.dropdown-submenu a.test').on("click", function(e){
-            $(this).next('ul').toggle();
-            e.stopPropagation();
-            e.preventDefault();
-            });
-        });
-    </script>
 </body>
 
 <template name="ApplicationLayout">
     <div class="container">
-        <a href="/">Home</a>
-        {{>header}}
+        {{>yield "header"}}
         {{>topnav}}
         <!-- iron router will select what to render in place of yield-->
         {{> yield }}
@@ -22,8 +15,61 @@
 
 
 
-<template name="header">
-    <h1 align="center">Welcome to Vanity Table</h1>
+<template name="homeheader">
+    <div align="center">
+        <h1>Welcome to Vanity Table, {{nickname}}</h1>
+    </div>
+</template>
+
+<template name="commonheader">
+    <div align="center">
+        <h1> Vanity Table</h1>
+    </div>
+</template>
+
+<template name="brandheader">
+    <div align="center">
+        <br/>
+        <h1 style="display:inline"> Brand names</h1>
+        <h4 style="display:inline"> (from A to Z)</h4>
+    </div>
+    <br/>
+</template>
+
+<template name="brandproductsheader">
+    <h1> {{brandname}}</h1>
+</template>
+
+<template name="categoryproductsheader">
+    <h1> {{category}}s</h1>
+</template>
+
+<template name="adminheader">
+    <div align="center">
+        <h1> Admin, start maintainance!</h1>
+    </div>
+</template>
+
+<template name="tableheader">
+    <h1 align = "center"> {{nickname}} 's Tables </h1>
+</template>
+
+<template name="wishlistheader">
+    <h1 align = "center"> {{nickname}} 's Wishlists </h1>
+</template>
+
+<template name="productsontableheader">
+    <div align="center">
+        <h1 align="center"> Products on your table: &nbsp;{{name}}</h1>
+        <span>( {{description}} )</span>
+    </div>
+</template>
+
+<template name="productsonwishlistheader">
+    <div align="center">
+        <h1 align="center"> Products on your wishlist: &nbsp;{{name}}</h1>
+        <span>( {{description}} )</span>
+    </div>
 </template>
 
 <!-- <template name="showproduct">
@@ -34,8 +80,9 @@
     <div class="container container fluid">
         <div class="row">
             {{#each products}}
-            <div class="col-md-4 col-sm-2" height="200" align="center">
-                <p> {{name}} </p>
+            <div class="col-md-3 " align="center">
+                <img src="{{_id}}.png" style="width: 60%; height:60%">
+                <p><a href="/products/{{_id}}"> {{name}} </a></p>
                 <p> {{brand}}</p>
                 <br/>
             </div>
@@ -45,12 +92,12 @@
 </template>
 
 <template name="showCategoryproducts">
-    <h1> Category: {{category}}</h1>
     <div class="container container fluid">
         <div class="row">
             {{#each this}}
-            <div class="col-md-4 col-sm-2" height="200" align="center">
-                <p> {{name}} </p>
+            <div class="col-md-3" align="center">
+                <img src="/{{_id}}.png" style="width: 60%; height:60%">
+                <p><a href="/products/{{_id}}"> {{name}} </a></p>
                 <p> {{brand}}</p>
                 <br/>
             </div>
@@ -58,5 +105,117 @@
         </div>
     </div>    
 </template>
+
+<template name="showBrands">
+    {{#each finallist}}
+        <div class="container container-fluid">
+            <h3> Letter : &nbsp; {{first}}</h3>            
+            <div class="row">
+                {{#each list}}
+                <div class="col-md-3" align="center">
+                   <h5><a href="/brand/{{this}}">{{this}}</a></h5>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        <br/>
+    {{/each}}
+</template>
+
+<template name="showProduct">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <p>image</p>
+            </div>
+            <div class="col-md-7">
+                <p> name description</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="adminProducts">
+    {{#if checkadmin}}
+    <div class="container container fluid">
+        <div class="row">
+            <div class="col-md-6">
+                    <!-- <h3>{{nickname}}, Your tables are here</h3> -->
+                    <h3><button class="btn btn-default js-toggle-insertproductform">+ New product</button></h3>
+                    {{#each products}}
+                    {{>productItem}}
+                    {{/each}}                                
+            </div>
+            <!-- <div class="col-md-6"> -->
+            <!--     <span>Place to put add product form</span>
+            </div> -->
+            <div id="insertproductform" class="col-md-6 hidden" >
+                {{>InsertProduct}}
+            </div>
+
+            <div id="admineditproductform" class="col-md-6 hidden" >
+                {{>EditProduct}}
+            </div>
+            
+        </div>
+    </div>
+    {{/if}}
+</template>
+
+<template name="productItem">
+    <div class="rows">
+        <div class="col-md-3">
+           <sp><a href ="/brand/{{brand}}">{{brand}}</a></sp>
+        </div>
+        <div class="col-md-7">
+            <sp><a href="/products/{{_id}}">{{name}}</a></sp>
+        </div>
+        <div class="col-md-1">
+            <button class="btn-default js-toggle-admin-editproductform" title="Edit" style="border: 0; background: none;"><i class="fa fa-edit" style="font-size:20px; color:dodgerblue"></i></button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn-default js-admin-delete-product" title="Delete" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:red" ></i></button>
+        </div>
+            
+            <!-- <div>
+                <button style="width:150px" class="btn btn-primary js-toggle-edittableform" title="Edit this table " >Edit</button>
+                <button style="width:150px" class="btn btn-danger js-delete-table" title="Delelte this table? " >delete</button>
+            </div>  -->
+    </div> 
+         
+    <br/>
+</template>
+
+<template name="productInfo">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-5" align="center">
+                <img src={{path}} style="width: 60%; height:60%">
+            </div>
+            <div class="col-md-7">
+                <h3 align="center">{{name}}</h3>
+                <h5 align="center">{{brand}}</h5>
+                <br/>
+                <h5> Description: </h5>
+                <p>{{description}}</p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="showBrandproducts">
+    <div class="container container-fluid">
+        <div class = "row">
+            {{#each this}}
+            <div class = "col-md-3" align="center">
+                <img src={{path}} style="width: 60%; height:60%">
+                <h5><a href="/products/{{_id}}">{{name}}</a></h5>
+                <p> $ {{price}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
 
 

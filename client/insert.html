@@ -1,5 +1,41 @@
+<template name="InsertProduct">
+	{{#autoForm collection="Products" id="insertProductForm" type="method" meteormethod="insertProduct"}}
+  	<fieldset>
+  		<legend>Add New Product to Database</legend>
+    	{{> afQuickField name='name'}}
+    	{{> afQuickField name='brand'}}
+    	{{> afQuickField name='abbre'}}
+    	{{> afQuickField name='description'}}
+    	{{> afQuickField name='category'}}
+    	{{> afQuickField name='price'}}
+    	{{> afQuickField name='imgaddress'}}    
+  	</fieldset>
+  	<button type="submit" class="btn btn-primary">Add</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+    <button class="btn btn-danger js-hide-insertproductform">Close</button>
+  	{{/autoForm}}
+ </template>
+
+ <template name="EditProduct">
+	{{#autoForm collection="Products" doc=productdoc id="adminEditproductForm" type="method" meteormethod="admineditproduct"}}
+    <fieldset>
+        <legend>Editting {{productdoc.name}}</legend>
+    	{{> afQuickField name='name' value=productdoc.name}}
+    	{{> afQuickField name='brand' value=productdoc.brand}}
+    	{{> afQuickField name='abbre' value=productdoc.abbre}}
+    	{{> afQuickField name='description' value=productdoc.description}}
+    	{{> afQuickField name='category' value=productdoc.category}}
+    	{{> afQuickField name='price' value=productdoc.price}}
+    	{{> afQuickField name='imgaddress' value=productdoc.imgaddress}}
+    	{{> afQuickField name='_id' value=productdoc._id type="hidden"}}  
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+    <button class="btn btn-danger js-hide-admineditproductform">Close</button>
+  {{/autoForm}}
+</template>
+
 <template name="InsertTable">
-<!-- 	{{> quickForm collection="Tables" id="inserttableForm" type="method" meteormethod="insertTable"}}-->
 	{{#autoForm collection="Tables" id="inserttableForm" type="method"
 	meteormethod="insertTable"}}
     <fieldset>
@@ -10,6 +46,21 @@
     <button type="submit" class="btn btn-primary">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     <button class="btn btn-danger js-hide-tableform">Close</button>
+  {{/autoForm}}
+</template>
+
+<template name="EditTable">
+	{{#autoForm collection="Tables" doc=tabledoc id="EdittableForm" type="method" meteormethod="edittable"}}
+    <fieldset>
+      <legend>Edit Table {{tabledoc.name}}</legend>
+      {{> afQuickField name='name' value=tabledoc.name}}
+      {{> afQuickField name='description' value =tabledoc.description}}
+      {{> afQuickField name='_id' value=tabledoc._id type="hidden"}}
+      {{> afQuickField name='userID' value=tabledoc.userID type="hidden"}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+    <button class="btn btn-danger js-hide-edittableform">Close</button>
   {{/autoForm}}
 </template>
 
@@ -27,6 +78,21 @@
   {{/autoForm}}
 </template>
 
+<template name="EditWishlist">
+	{{#autoForm collection="Wishlists" doc=wishlistdoc id="EditwishlistForm" type="method" meteormethod="editwishlist"}}
+    <fieldset>
+      <legend>Edit Wishlist {{wishlistdoc.name}}</legend>
+      {{> afQuickField name='name' value=wishlistdoc.name}}
+      {{> afQuickField name='description' value =wishlistdoc.description}}
+      {{> afQuickField name='_id' value=wishlistdoc._id type="hidden"}}
+      {{> afQuickField name='userID' value=wishlistdoc.userID type="hidden"}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="reset" class="btn btn-primary js-reset-editwishlistform">Reset</button>
+    <button class="btn btn-danger js-hide-editwishlistform">Close</button>
+  {{/autoForm}}
+</template>
+
 
 <template name="AddtoWishlist">
     {{#autoForm collection="Products"
@@ -39,8 +105,7 @@
     	{{> afQuickField name='brand'}}
     	{{> afQuickField name='abbre'}}
     	{{> afQuickField name='category'}}
-    	{{> afQuickField name='price'}}
-    	{{> afQuickField name='wishlistId' value=_id type="hidden"}}    
+    	{{> afQuickField name='price'}}    
   	</fieldset>
   	<button type="submit" class="btn btn-primary">Add</button>
   	<button type="reset" class="btn btn-primary">Reset</button>
