@@ -8,5 +8,5 @@ meteor npm install
 
 meteor
 
-
-After log in, you will see user's menu. You can add your product. Review and warning function still under developement.
+Guest can browse through the production pages but can't post reviews and make your own list.
+After log in, you will see user's menu. You can add your current product to table and rate it. You can also add your dream product to wishlist. System will show you how many similar products you already have.
