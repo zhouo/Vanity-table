@@ -8,9 +8,8 @@
     	{{> afQuickField name='description'}}
     	{{> afQuickField name='category'}}
     	{{> afQuickField name='price'}}
-    	{{> afQuickField name='imgaddress'}}    
   	</fieldset>
-  	<button type="submit" class="btn btn-primary">Add</button>
+  	<button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     <button class="btn btn-danger js-hide-insertproductform">Close</button>
   	{{/autoForm}}
@@ -26,8 +25,7 @@
     	{{> afQuickField name='description' value=productdoc.description}}
     	{{> afQuickField name='category' value=productdoc.category}}
     	{{> afQuickField name='price' value=productdoc.price}}
-    	{{> afQuickField name='imgaddress' value=productdoc.imgaddress}}
-    	{{> afQuickField name='_id' value=productdoc._id type="hidden"}}  
+    	{{> afQuickField name='product_id' value=productdoc._id type="hidden"}}  
     </fieldset>
     <button type="submit" class="btn btn-primary">Edit</button>
     <button type="reset" class="btn btn-primary">Reset</button>
@@ -43,7 +41,7 @@
       {{> afQuickField name='name'}}
       {{> afQuickField name='description'}}
     </fieldset>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     <button class="btn btn-danger js-hide-tableform">Close</button>
   {{/autoForm}}
@@ -55,10 +53,10 @@
       <legend>Edit Table {{tabledoc.name}}</legend>
       {{> afQuickField name='name' value=tabledoc.name}}
       {{> afQuickField name='description' value =tabledoc.description}}
-      {{> afQuickField name='_id' value=tabledoc._id type="hidden"}}
+      {{> afQuickField name='table_id' value=tabledoc._id type="hidden"}}
       {{> afQuickField name='userID' value=tabledoc.userID type="hidden"}}
     </fieldset>
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     <button class="btn btn-danger js-hide-edittableform">Close</button>
   {{/autoForm}}
@@ -72,7 +70,7 @@
       {{> afQuickField name='name'}}
       {{> afQuickField name='description'}}
     </fieldset>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
     <button class="btn btn-danger js-hide-wishlistform">Close</button>
   {{/autoForm}}
@@ -84,10 +82,10 @@
       <legend>Edit Wishlist {{wishlistdoc.name}}</legend>
       {{> afQuickField name='name' value=wishlistdoc.name}}
       {{> afQuickField name='description' value =wishlistdoc.description}}
-      {{> afQuickField name='_id' value=wishlistdoc._id type="hidden"}}
+      {{> afQuickField name='wishlist_id' value=wishlistdoc._id type="hidden"}}
       {{> afQuickField name='userID' value=wishlistdoc.userID type="hidden"}}
     </fieldset>
-    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
     <button type="reset" class="btn btn-primary js-reset-editwishlistform">Reset</button>
     <button class="btn btn-danger js-hide-editwishlistform">Close</button>
   {{/autoForm}}
@@ -107,7 +105,7 @@
     	{{> afQuickField name='category'}}
     	{{> afQuickField name='price'}}    
   	</fieldset>
-  	<button type="submit" class="btn btn-primary">Add</button>
+  	<button type="submit" class="btn btn-success">Add</button>
   	<button type="reset" class="btn btn-primary">Reset</button>
   	<button class="btn btn-danger js-hide-addtowishlistForm">Close</button>
 	{{/autoForm}}
@@ -130,3 +128,30 @@
   	<button class="btn btn-danger js-hide-addtotableForm">Close</button>
 	{{/autoForm}}
 </template>
+
+<template name="AddReviewForm">
+   		<div class="col-md-12" style="margin-top: 10px">
+   			{{#autoForm collection="Reviews"
+                id="addreviewform"
+                type="method"
+                meteormethod="addreview"}}
+  			<fieldset>
+		  		<legend align="center">Add your review here</legend>
+		  		{{>afQuickField name='title'}}
+		    	{{> afQuickField name='text'}}
+		    	{{> afQuickField name='product_id' value=_id type="hidden"}}
+		    	{{> afQuickField name='user_id' value=userID type="hidden"}}
+		    	{{> afQuickField name='createdBy' value=username type="hidden"}}
+		    	{{> afQuickField name='rating' value=ratingValue type="hidden"}}
+  	       </fieldset>
+  	        <div class="rows">
+  	       		<div class="col-md-4 col-md-offset-1 col-xs-6">
+   					<button type="submit" id="close-review-form" class="btn btn-success">Submit</button>
+   				</div>
+   				<div class="col-md-4 col-md-offset-2 col-xs-6">
+   					<button type="reset" class="btn btn-primary">Reset</button>
+   				</div>
+   			</div>
+  			{{/autoForm}}
+   		</div>
+ </template>

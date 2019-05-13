@@ -24,8 +24,10 @@ Meteor.publish("wishlists", function(){
     }
 });
 
-Meteor.publish("products", function(){
-    if (this.userId){
-        return Products.find();
-    }
+Meteor.publish("products", function(){    
+    return Products.find();
+});
+
+Meteor.publish("reviews", function(){    
+    return Reviews.find();
 });

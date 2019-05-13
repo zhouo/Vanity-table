@@ -3,10 +3,10 @@
     <div class="container container fluid">
     	<div class="row">
     		<div class="col-md-6">
-                    <h3><button class="btn btn-default js-toggle-wishlistform">+ New wishlist</button></h3> 
-    				{{#each wishlists}}
-        			{{>WishlistItem}}
-    				{{/each}}
+                    <h3 style="margin-top: 0px"><button class="btn btn-default js-toggle-wishlistform">+ New wishlist</button></h3> 
+                        {{#each wishlists}}
+                        {{>WishlistItem}}
+                        {{/each}}
     						
     		</div>
     		<div id="wishlistform" class="col-md-6 hidden" >
@@ -26,46 +26,86 @@
 <template name="WishlistItem">
     <!-- <div class="container container fluid">
     	<div class="row"> -->
-    <div >
-        <h4 style="display:inline"><a href="/wishlists/{{_id}}">Wishlist:  {{name}}</a></h4>
-        <sp style="display:inline">&nbsp; ({{description}})</sp>
-        <div>
-            <button style="width:150px" class="btn btn-primary js-toggle-editwishlistform" title="Edit this wishlist " >Edit</button>
-            <button style="width:150px" class="btn btn-danger js-delete-wishlist" title="Delelte this wishlist? " >Delete</button>
-            </div> 
-    </div> 
+    <div class="row list-item" style="margin-left:0px">
+        <div class="col-md-4">
+            <h5 style="margin-top:10px;margin-left:0px"><a href="/wishlists/{{_id}}">{{name}}</a></h5>
+        </div>
+        <div class="col-md-5" align="center">
+            <p style="margin:10px">({{description}})</p>
+        </div>
 
+        <div class="col-md-1" >
+            <button class="btn-default js-toggle-editwishlistform" title="Edit this wishlist!" style="border: 0; background: none;"><i class="fa fa-edit" style="font-size:20px; color:dodgerblue; margin: 10px"></i></button>
+        </div>
+        <div class="col-md-1" >
+            <button class="btn-default js-delete-wishlist" title="Delete this wishlist?" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:dodgerblue; margin:10px"></i></button>
+        </div>
+    </div>           
     <br/>
 </template>
+
 
 <template name="productsOnwishlist">
 	<div class="container container fluid">
     	<div class="row">
     		<div class="col-md-6">
-				<h4 style="display:inline"> Wishlist: {{name}}</h4>
-                <p style="display:inline"> ({{description}})</p>
-                <!-- <p>(Click item to show the same category 
-                product on your table)</p> -->
                 <div class="row">
-                    <div class="col-md-5">
-                        <h3><button style="width:150px" class="btn btn-default js-toggle-addtowishlistform">+ New product</button></h3>
+                    <div class="col-md-5" >
+                        <h3 style="margin-top: 0px"><button style="width:150px;" class="btn btn-default js-toggle-addtowishlistform">+ New product</button></h3>
                     </div>
                     <div class="col-md-5">           
-                        <h3><button id="backtolists" style="width:150px" class="btn btn-info" title="Go back to your all wishilists " >Back to you lists</button></h3>
+                        <h3 style="margin-top: 0px"><button id="backtolists" style="width:150px" class="btn btn-info" title="Go back to your all wishilists " >Back to you lists</button></h3>
                     </div>
-                </div>    
-        
-                {{#each productlist _id}}
-                <sp>{{abbre}} {{name}} {{price}} $</sp>
+                </div>
+                <br/>
+                <div class="list-item">
+				    <h4 style="display:inline; margin:10px"> Wishlist: {{name}}</h4>
+                    <p style="display:inline;margin: 10px " > ({{description}})</p>
+                </div>
+                <br/>
                 <div class="row">
+                    <div class="col-md-2">
+                        Brand
+                    </div>
+                    <div class="col-md-6" align="center">
+                        Name 
+                    </div>
+                    <div class="col-md-1" align="center">
+                        price
+                    </div>
+                </div>
+                <br/>   
+                
+                {{#each productlist _id}}
+                <div class="row">
+                    <div class="col-md-2">
+                       <sp><a href ="{{path}}">{{abbre}}</a></sp>
+                    </div>
+                    <div class="col-md-6" align="center">
+                        <sp><a href="/products/{{id}}">{{name}}</a></sp>
+                    </div>
+                    <div class="col-md-2" align="center">
+                        <sp>{{price}}&nbsp;$</sp>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn-default js-toggle-showSamecategory" title="Click to show the same category products on your tables" style="border: 0; background: none;"><i class="fa fa-table" style="font-size:20px; color:dodgerblue"></i></button>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn-default js-remove-wishlistitem" title="Click to remove" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:red" ></i></button>
+                    </div>
+                </div>
+                <br/>
+                {{/each}}
+                <!-- <sp>{{abbre}} {{name}} {{price}} $</sp> -->
+                <!-- <div class="row">
                     <div class="col-md-5">        
                         <button class="btn btn-success js-toggle-showSamecategory" title="Click to show the same category product on your table" style="width:150px">Show your similars</button>
                     </div>
                     <div class="col-md-5">
                         <button style="width:150px" class="btn btn-danger js-remove-wishlistitem" title="Click to Remove">Remove</button>
                     </div>
-                </div>
-    			{{/each}}
+                </div> -->
+    			
     		</div>
     		<div id="addtowishlistForm" class="col-md-6 hidden">
     			{{>AddtoWishlist}}	

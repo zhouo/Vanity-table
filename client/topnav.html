@@ -1,5 +1,5 @@
 <template name="topnav">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" style="margin: 20px">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" href="#">Vanity</a>
@@ -80,7 +80,7 @@
                 <ul class="dropdown-menu">
                   {{#each makeupeyelist}}
                     <li>
-                      <a href="#">{{value}}</a>
+                      <a href="/category/{{value}}">{{value}}</a>
                     </li>
                   {{/each}}
                 </ul>
@@ -90,7 +90,7 @@
                 <ul class="dropdown-menu">
                   {{#each makeupfacelist}}
                     <li>
-                      <a href="#">{{value}}</a>
+                      <a href="/category/{{value}}">{{value}}</a>
                     </li>
                   {{/each}}
                 </ul>
@@ -100,7 +100,7 @@
                 <ul class="dropdown-menu">
                   {{#each makeupliplist}}
                     <li>
-                      <a href="#">{{value}}</a>
+                      <a href="/category/{{value}}">{{value}}</a>
                     </li>
                   {{/each}}
                 </ul>

@@ -4,7 +4,7 @@
     	<div class="row">
     		<div class="col-md-6">
     				<!-- <h3>{{nickname}}, Your tables are here</h3> -->
-                    <h3><button class="btn btn-default js-toggle-tableform">+ New Table</button></h3>
+                    <h3 style="margin-top: 0px"><button class="btn btn-default js-toggle-tableform">+ New Table</button></h3>
     				{{#each tables}}
         			{{>tableItem}}
     				{{/each}}
@@ -25,19 +25,40 @@
 </template>
 
 <template name="tableItem">
-    <!-- <div class="container container fluid">
-    	<div class="row"> -->
-    <div display="inline-block">
-        	<h4 style="display:inline"><a href="/tables/{{_id}}">Table:{{name}}</a></h4>
-        	<sp style="display:inline"> &nbsp;({{description}})</sp> 
-            <div>
-                <button style="width:150px" class="btn btn-primary js-toggle-edittableform" title="Edit this table " >Edit</button>
-                <button style="width:150px" class="btn btn-danger js-delete-table" title="Delelte this table? " >delete</button>
-            </div> 
-        	
-    </div>         
+        <div class="row list-item" style="margin-left:0px">
+        <div class="col-md-4">
+            <h5 style="margin-top:15px;padding-left:0px;margin-left: :0px"><a href="/tables/{{_id}}">Table:&nbsp;&nbsp; {{name}}</a></h5>
+        </div>
+        <div class="col-md-5">
+            <p style="margin:10px">({{description}})</p>
+        </div>
+
+        <div class="col-md-1" >
+            <button class="btn-default js-toggle-edittableform" title="Edit this table!" style="border: 0; background: none;"><i class="fa fa-edit" style="font-size:20px; color:dodgerblue; margin: 10px"></i></button>
+        </div>
+        <div class="col-md-1" >
+            <button class="btn-default js-delete-table" title="Delete this wishlist?" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:dodgerblue; margin:10px"></i></button>
+        </div>
+    </div>           
     <br/>
 </template>
+ <!--    <div class="row" style="padding:10px ; border:thin solid #EFEFEF; margin-left: 0px;background-color: #FAFAFA">
+        <div class="col-md-12 col-md-offset-1 pull-left">
+            <h4 style="display:inline"><a href="/tables/{{_id}}">Table:  {{name}}</a></h4>
+            <sp style="display:inline">&nbsp; ({{description}})</sp>
+            <div class="row" style="padding-top: 10px">
+                <div class="col-md-6">     
+                    <button style="width:80px; height:25px;padding:0px" class="btn btn-primary js-toggle-edittableform" title="Edit this table " >Edit</button>
+                </div>
+                <div class="col-md-6">
+                    <button style="width:80px;height:25px;padding:0px"  class="btn btn-danger js-delete-table" title="Delelte this table? " >Delete</button>
+                </div>
+            </div>
+        </div> 
+    </div> 
+
+    <br/> -->
+
 
 <template name="productsOntable">
 	<div class="container container fluid">
@@ -45,18 +66,19 @@
     		<div class="col-md-6">
                 <!-- <h3> Table: &nbsp;{{name}}</h3> -->
                 <div class="row">
-                    <div class="col-md-5">
-                        <h3><button style="width:150px" class="btn btn-default js-toggle-addtotableform">+ New product</button></h3>
+                    <div class="col-md-5 col-md-offset-1">
+                        <h3 style="margin-top: 0px"><button style="width:150px" class="btn btn-default js-toggle-addtotableform">+ New product</button></h3>
                     </div>
                     <div class="col-md-5">           
-                        <h3><button id="backtotables" style="width:150px" class="btn btn-info" title="Go back to your all tables " >Back to you tables</button></h3>
+                        <h3 style="margin-top: 0px"><button id="backtotables" style="width:150px" class="btn btn-info" title="Go back to your all tables " >Back to you tables</button></h3>
                     </div>
                 </div>
+                <br/>
                 <div class="row">
                     <div class="col-md-2" align="center">
                         Brand
                     </div>
-                    <div class="col-md-7" align="center">
+                    <div class="col-md-5" align="center">
                         Name 
                     </div>
                     <div class="col-md-3">
@@ -65,16 +87,25 @@
                 </div>
                 <br/>
     			{{#each productlist _id}}
-                <div class="row">
+                <div class="row list-item" style="padding-top:10px ">
                     <div class="col-md-2">
                         {{abbre}}
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-5" align="center">
                         {{name}} 
                     </div>
-                    <div class="col-md-3">
-                        {{expiredate}}
+                    <div class="col-md-3" id={{productid}}>
+                        {{#if expired}}
+                          <p style="color: red">{{expiredate}}</p>
+                        {{else}}
+                          <p>  {{expiredate}}</p>
+                        {{/if}}
                     </div>
+                    <!-- <div class="col-md-1">
+                        <button class="btn-default js-toggle-admin-editproductform" title="Edit" style="border: 0; background: none;"><i class="fa fa-edit" style="font-size:20px; color:dodgerblue"></i></button>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn-default js-admin-delete-product" title="Delete" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:red" ></i></button> -->
                 </div>
                 <br/>
     			{{/each}}	

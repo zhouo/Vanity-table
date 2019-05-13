@@ -16,59 +16,134 @@
 
 
 <template name="homeheader">
-    <div align="center">
-        <h1>Welcome to Vanity Table, {{nickname}}</h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8" style="margin-top:20px">
+                <h3 style="margin-top:10px">Welcome, {{nickname}}</h3>    
+            </div>
+        </div>
     </div>
 </template>
 
 <template name="commonheader">
-    <div align="center">
-        <h1> Vanity Table</h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8">
+                <h1> Vanity Table</h1>
+            </div>
+        </div>
     </div>
 </template>
 
 <template name="brandheader">
-    <div align="center">
-        <br/>
-        <h1 style="display:inline"> Brand names</h1>
-        <h4 style="display:inline"> (from A to Z)</h4>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8">
+                <br/>
+                <h1 style="display:inline"> Brand names</h1>
+                <h4 style="display:inline"> (from A to Z)</h4>
+            </div>
+        </div>
     </div>
-    <br/>
 </template>
 
 <template name="brandproductsheader">
-    <h1> {{brandname}}</h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%" >
+            </div>
+            <div class="col-md-8" >
+                <h1>{{brandname}}</h1>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="categoryproductsheader">
-    <h1> {{category}}s</h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8" >
+                <h1> {{category}}</h1>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="adminheader">
-    <div align="center">
-        <h1> Admin, start maintainance!</h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8">
+            <h1> Admin, start maintainance!</h1>
+            </div>
+        </div>
     </div>
 </template>
 
 <template name="tableheader">
-    <h1 align = "center"> {{nickname}} 's Tables </h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8">
+                <h1 align = "center"> {{nickname}} 's Tables </h1>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="wishlistheader">
-    <h1 align = "center"> {{nickname}} 's Wishlists </h1>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%">
+            </div>
+            <div class="col-md-8">
+                <h1> {{nickname}} 's Wishlists </h1>
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="productsontableheader">
-    <div align="center">
-        <h1 align="center"> Products on your table: &nbsp;{{name}}</h1>
-        <span>( {{description}} )</span>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%" >
+            </div>
+            <div class="col-md-8">
+                <h1 > Products on your table: &nbsp;{{name}}</h1>
+            </div>
+        </div>
     </div>
 </template>
 
 <template name="productsonwishlistheader">
-    <div align="center">
-        <h1 align="center"> Products on your wishlist: &nbsp;{{name}}</h1>
-        <span>( {{description}} )</span>
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-md-4" style="margin-top:20px">
+                <img src="/title.png" width="50%" >
+            </div>
+            <div class="col-md-8">
+                <h1> Products on your wishlist: &nbsp;{{name}}</h1>
+            </div>
+        </div>               
     </div>
 </template>
 
@@ -77,17 +152,23 @@
 </template> -->
 
 <template name="home">
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+    </ol>
     <div class="container container fluid">
-        <div class="row">
+        
+        <div class="rows">
             {{#each products}}
-            <div class="col-md-3 " align="center">
-                <img src="{{_id}}.png" style="width: 60%; height:60%">
-                <p><a href="/products/{{_id}}"> {{name}} </a></p>
-                <p> {{brand}}</p>
-                <br/>
+            <div class="col-md-3 panel panel-default panel-borderless" align="center">
+                <div class="panel-body panel-borderless">
+                    <img src= {{path}} style="width: 60%; height:60%">
+                    <p><a href="/products/{{_id}}"> {{name}} </a></p>
+                    <p> {{brand}}</p>
+                    <br/>
+                </div>
             </div>
-            {{/each}}
-        </div>
+           {{/each}} 
+        </div>       
     </div>    
 </template>
 
@@ -107,9 +188,13 @@
 </template>
 
 <template name="showBrands">
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/brands">Brands</a></li>
+    </ol>
     {{#each finallist}}
         <div class="container container-fluid">
-            <h3> Letter : &nbsp; {{first}}</h3>            
+            <h5> Letter : &nbsp; {{first}}</h5>            
             <div class="row">
                 {{#each list}}
                 <div class="col-md-3" align="center">
@@ -122,7 +207,7 @@
     {{/each}}
 </template>
 
-<template name="showProduct">
+<!-- <template name="showProduct">
     <div class="container container-fluid">
         <div class="row">
             <div class="col-md-5">
@@ -133,7 +218,7 @@
             </div>
         </div>
     </div>
-</template>
+</template> -->
 
 <template name="adminProducts">
     {{#if checkadmin}}
@@ -141,7 +226,7 @@
         <div class="row">
             <div class="col-md-6">
                     <!-- <h3>{{nickname}}, Your tables are here</h3> -->
-                    <h3><button class="btn btn-default js-toggle-insertproductform">+ New product</button></h3>
+                    <h3 style="margin-top: 0px"><button class="btn btn-default js-toggle-insertproductform">+ New product</button></h3>
                     {{#each products}}
                     {{>productItem}}
                     {{/each}}                                
@@ -163,34 +248,29 @@
 </template>
 
 <template name="productItem">
-    <div class="rows">
-        <div class="col-md-3">
-           <sp><a href ="/brand/{{brand}}">{{brand}}</a></sp>
+    <div class="row list-item">
+        <br/>
+        <div class="col-md-3" style="margin-bottom: 10px">
+           <p><a href ="/brand/{{brand}}">{{brand}}</a></p>
         </div>
-        <div class="col-md-7">
-            <sp><a href="/products/{{_id}}">{{name}}</a></sp>
+        <div class="col-md-7" style="margin-bottom: 10px">
+            <p><a href="/products/{{_id}}">{{name}}</a></p>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1" style="margin-bottom: 10px">
             <button class="btn-default js-toggle-admin-editproductform" title="Edit" style="border: 0; background: none;"><i class="fa fa-edit" style="font-size:20px; color:dodgerblue"></i></button>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1" style="margin-bottom: 10px">
             <button class="btn-default js-admin-delete-product" title="Delete" style="border: 0; background: none;"><i class="fa fa-trash" style="font-size:20px; color:red" ></i></button>
-        </div>
-            
-            <!-- <div>
-                <button style="width:150px" class="btn btn-primary js-toggle-edittableform" title="Edit this table " >Edit</button>
-                <button style="width:150px" class="btn btn-danger js-delete-table" title="Delelte this table? " >delete</button>
-            </div>  -->
-    </div> 
-         
-    <br/>
+        </div>                      
+    </div>
+
 </template>
 
 <template name="productInfo">
     <div class="container container-fluid">
         <div class="row">
             <div class="col-md-5" align="center">
-                <img src={{path}} style="width: 60%; height:60%">
+                <img src={{path}} alt = {{name}} style="width: 60%; height:60%">
             </div>
             <div class="col-md-7">
                 <h3 align="center">{{name}}</h3>
@@ -198,12 +278,23 @@
                 <br/>
                 <h5> Description: </h5>
                 <p>{{description}}</p>
+                <br/>
             </div>
-        </div>
+        </div>       
+    </div>
+    <br/>
+    <br/>
+    <div class="container">
+            {{>ReviewBlock}}
     </div>
 </template>
 
 <template name="showBrandproducts">
+    <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/brands">Brands</a></li>
+        <li><a href="/brand/{{brandname}}">{{brandname}}</a></li>
+    </ol>
     <div class="container container-fluid">
         <div class = "row">
             {{#each this}}
@@ -217,5 +308,231 @@
     </div>
 </template>
 
+<template name="ReviewBlock">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="rows">
+                <div class="col-md-3 col-xs-12">
+                    <button id="addreviewbutton" style="width:130px" class="btn btn-primary js-toggle-addreviewForm" title="add review " > Post your review </button>
+                </div>
+                <div class="col-md-3 col-md-offset-3 col-xs-12 " align="center">
+                    <button id="showreviewsbutton" style="width:130px;" class="btn btn-primary js-toggle-showreviews" title="show reviews " > Toggle all reviews </button>
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div id='addreviewForm'  class="rows" style="display: none; padding-top: 20px ">
+                        <br/>
+                    <div class="col-md-4" align="center">
+                        <h4>Rating:</h4>
+                    </div>
+                    <div class="col-md-8"  align="center">
+                        {{>starsRating id="addrating" mutable=true class="js-rate-product" size='lg'}}  
+                    </div>
+                    {{>AddReviewForm}}  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            {{#if currentUser}}
+            <div class="row">
+                <div class="col-md-6" align="center">
+                    <button style="width:150px" class="btn btn-primary js-toggle-wishlist-selection" title="Add to Wishlist " >Add to Wishlist</button>
+                    <br>
+                    <div id="wishlist-selection" style="display: none; margin-top: 10px"    class="list-item">
+                        <!-- <p> choose your wishlists</p> -->
+                        {{>WishlistSelection}}
+                        
+                    </div>
+                </div>
+                <div class="col-md-6" align="center">
+                    <button style="width:150px" class="btn btn-primary js-toggle-table-selection" title="Add to Table " >Add to Table</button>
+                    <br/>
+                    <div id="table-selection" style="display: none; margin-top: 10px"   class="list-item">
+                        {{>TableSelection}} 
 
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            <br/>
+            <br/>
+            <div class="row" id="showratings">
+                <div class="col-md-6" align="center">
+                    {{>AverageRating}}
+                </div>
+                <div class="col-md-6" align="center">
+                    {{>RatingBreakdown}}
+                </div>
+            </div>
+            <br/>
+            <div id="showreviews"  style="display: block; margin: 20px ; padding: 10px; padding-top:0px">
+                    {{#each review}}
+                        {{>ReviewItem}}
+                    {{/each}}
+            </div>
+        </div>
+    </div>               
+</template>
+
+<template name="ReviewItem">
+    <div class="row list-item">
+        <div class="col-md-4" align="center" style="margin-top:10px">
+            <h5>{{createdBy}}</h5>
+            <br/>
+            <p style="font-size: 12px">{{postdate}}</p>
+            <p style="font-size: 12px"> {{posttime}}</p>
+        </div>
+        <div class="col-md-8" align="left" style="margin-top:20px">
+            {{>starsRating  mutable=false  rating=rating size='sm'}}
+            <br/>
+            {{text}}
+        </div>
+    </div>
+    <br/>
+<!--     <div class="col-md-3">
+    </div>
+    <div class="col-md-9" align="left"> -->
+    
+</template>
+
+<template name="AverageRating">
+    <div class="rating-block">
+        <h4>Average user rating</h4>
+        <h2 class="bold padding-bottom-7">{{average}} <small>/ 5</small></h2>
+        <br/>
+        {{>starsRating  mutable=false  rating= average size='lg'}}       
+    </div>
+</template>
+
+<template name="RatingBreakdown">
+    <div class="rating-block">
+        <h4>Rating breakdown</h4>
+        <div class="pull-left">
+            <div class="pull-left" style="width:35px; line-height:1;">
+                <div style="height:8px; margin:4px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+            </div>
+            <div class="pull-left" style="width:180px;">
+                <div class="progress" style="height:8px; margin:6px 0;">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right" style="margin-left:10px;">{{ratingnumber 5}}</div>
+        </div>
+
+        <div class="pull-left">
+            <div class="pull-left" style="width:35px; line-height:1;">
+                <div style="height:8px; margin:4px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+            </div>
+            <div class="pull-left" style="width:180px;">
+                <div class="progress" style="height:8px; margin:6px 0;">
+                  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                  </div>
+                </div>
+            </div>
+            <div class="pull-right" style="margin-left:10px;">{{ratingnumber 4}}</div>
+        </div>
+
+        <div class="pull-left">
+            <div class="pull-left" style="width:35px; line-height:1;">
+                <div style="height:8px; margin:4px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+            </div>
+            <div class="pull-left" style="width:180px;">
+                <div class="progress" style="height:8px; margin:6px 0;">
+                  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                  </div>
+                </div>
+            </div>
+            <div class="pull-right" style="margin-left:10px;">{{ratingnumber 3}}</div>
+        </div>
+
+        <div class="pull-left">
+            <div class="pull-left" style="width:35px; line-height:1;">
+                <div style="height:8px; margin:4px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+            </div>
+            <div class="pull-left" style="width:180px;">
+                <div class="progress" style="height:9px; margin:6px 0;">
+                  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                  </div>
+                </div>
+            </div>
+            <div class="pull-right" style="margin-left:10px;">{{ratingnumber 2}}</div>
+        </div>
+
+        <div class="pull-left">
+            <div class="pull-left" style="width:35px; line-height:1;">
+                <div style="height:8px; margin:4px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+            </div>
+            <div class="pull-left" style="width:180px;">
+                <div class="progress" style="height:8px; margin:6px 0;">
+                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                    <span class="sr-only">80% Complete (danger)</span>
+                  </div>
+                </div>
+            </div>
+            <div class="pull-right" style="margin-left:10px;">{{ratingnumber 1}}</div>
+        </div>
+    </div>    
+</template>
+
+<template name="WishlistSelection">
+    <!-- <p>Template test</p> -->
+    {{#if checklength}}
+        {{#each options}}
+        <div class="checkbox checkbox-success" align="left" style="margin-left: 80px">
+            <input class="wish" id={{_id}} type="checkbox">
+                <label for={{_id}}>
+                    Wishlist: {{name}}
+                </label>
+        </div>
+        {{/each}}
+        <button id="insertToWishlists" style="width:150px;margin-bottom: 10px" class="btn btn-success js-insert-to-wishlists" title="Add to Wishlists " >Add</button>
+    {{else}}
+        <h5 style="margin-top: 10px"> You don't have any wishlists.</h5>
+        <br/>
+        <button id="gotoWishlists" style="width:150px;margin-bottom: 10px" class="btn btn-primary js-goto-wishlists" title="Add new Wishlist ">Add a new Wishlist</button>
+    {{/if}}
+</template>
+
+
+<template name="TableSelection">
+    <!-- <p>Template test</p> -->
+    {{#if checklength}}
+        {{#each options}}
+        <div class="checkbox checkbox-success" align="left" style= "margin-left:80px">
+            <input class="table-selection js-toggle-inserttable-sub-form" id ={{_id}} type="radio" name="choosetable">
+                <label for="choosetable">
+                    {{name}}
+                </label>
+        </div>
+        <div class="inserttable-sub-form" id= {{_id}} style="display: none;margin-top: 10px">
+            <!-- <p> test toggle</p> -->
+            {{>AddtoTableSelection}}
+        </div>
+        {{/each}}
+
+        <!-- <button id="insertToTables" style="width:150px;margin-bottom: 10px" class="btn btn-success js-insert-to-tables" title="Add to Tables " >Add</button> -->
+    {{else}}
+        <h5 style="margin-top: 10px"> You don't have any table.</h5>
+        <br/>
+        <button id="gotoTablelists" style="width:150px;margin-bottom: 10px" class="btn btn-primary js-goto-tables" title="Add new talbe ">Add a new Table</button>
+    {{/if}}
+</template>
+
+<template name="AddtoTableSelection">
+    <form id="tableinsertion">
+            <label for="dateinput">When did you open it?</label>
+            <input type="date" class="form-control opendate" id="dateinput">
+            <label for="validinput"> How many months will it expire after open?</label>
+            <input type="number" class="form-control validity" id="validinput">
+    </form>
+    <br/>
+        <button type="submit" id="insert-specific-to-table" class="btn btn-success js-insert-specific-to-table">Submit</button>
+
+</template>
 

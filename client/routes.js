@@ -1,6 +1,7 @@
 Meteor.subscribe("tables");
 Meteor.subscribe("products");
-Meteor.subscribe("wishlists")
+Meteor.subscribe("wishlists");
+Meteor.subscribe("reviews");
 
 Router.configure({
   layoutTemplate: 'ApplicationLayout'
@@ -70,6 +71,7 @@ Router.route('/category/:value', function () {
     Meteor.subscribe("products");
     var productlist = Products.find({category:this.params.value}).fetch();
     //console.log(productlist);
+    Session.set("category", this.params.value);
     this.render('categoryproductsheader',{to:'header', data:productlist});
     this.render('showCategoryproducts', {data:productlist});
 });
@@ -78,6 +80,7 @@ Router.route('/brand/:value', function () {
     Meteor.subscribe("products");
     var productlist = Products.find({brand:this.params.value}).fetch();
     //console.log(productlist);
+    Session.set("brand", this.params.value);
     this.render('brandproductsheader',{to:'header', data:productlist});
     this.render('showBrandproducts', {data:productlist});
 });
@@ -85,6 +88,7 @@ Router.route('/brand/:value', function () {
 Router.route('/products/:_id', function () {
     Meteor.subscribe("products");
     var product = Products.findOne({_id:this.params._id});
-    this.render('adminheader',{to:'header', data:product});
+    Session.set("productId",this.params._id);
+    this.render('homeheader',{to:'header', data:product});
     this.render('productInfo', {data:product});
 });

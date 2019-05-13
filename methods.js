@@ -3,19 +3,19 @@ Meteor.methods({
     'insertProduct':function(product){
         var item = Products.findOne({"brand":product.brand,"name":product.name});
         //console.log(item);
-        if (!Meteor.user() || Meteor.user().username != "admin"){
+        if (!Meteor.user()){
             return;
         }
         else if(item) {
-            alert("This item is already in the database");
+            console.log("This item is already in the database");
             return;
         }
         else {
             product.createdBy = Meteor.user().username;
-            Products.insert(product);
-            console.log(product._id);
+            Products.insert(product,function(err, docs){
+                console.log(docs);
+                })
         }
-
     },
     'insertTable':function(table){
         if (!Meteor.user()){
@@ -120,6 +120,12 @@ Meteor.methods({
                 
         }
     },
+    'addreview':function(review){
+        console.log(review);
+        if (Meteor.user()){
+            Reviews.insert(review);
+        }
+    },
     'getSimilarlist':function(productId){
         //console.log(productId);
         similarlist = [];
@@ -179,6 +185,44 @@ Meteor.methods({
         });
         // console.log(FinalResult);
         return FinalResult;
+    },
+    'insertToWishlist':function(productId,wishlist_id){
+        if (Meteor.user()){
+            newproduct = new Object();
+            newproduct.id = productId;
+            newproduct.name = Products.findOne({_id: productId}).name;
+            newproduct.category = Products.findOne({_id: productId}).category;
+            newproduct.price = Products.findOne({_id: productId}).price;
+            newproduct.abbre = Products.findOne({_id: productId}).abbre;
+            Wishlists.update({_id: wishlist_id},
+                {$push:{'productlist': newproduct}},
+                {$set: {'updatedOn': new Date()}});
+        }
+    },
+    'insert-product-to-table':function(productlist,table_id){
+        if ( Meteor.user()){
+            // if ( Tables.findOne({"_id": table_id , "productlist.$.id": productlist.id})){
+            //     console.log("You have the same item on your table");
+            // }
+            // else {
+                Tables.update({_id: table_id},
+                {$push:{'productlist': productlist}},
+                {$set: {'updatedOn': new Date()}});
+            // }
+            
+        }
+    },
+    'insert-table-selection':function(product){
+        console.log("function called");
+        console.log(this);
+    },
+    'getUsername':function(id){
+        if (Meteor.user()){
+            user=Meteor.users.findOne({_id:id})
+            if(user){
+                return user.username;
+            }
+        }
     }    
 })
 
@@ -227,8 +271,8 @@ Meteor.methods({
         }
         else {
             //console.log(Wishlists.findOne({_id:list._id}));
-            if (Wishlists.findOne({_id:list._id}).userID = Meteor.userId()){
-                Wishlists.update({_id:list._id}, {$set:{
+            if (Wishlists.findOne({_id:list.wishlist_id}).userID = Meteor.userId()){
+                Wishlists.update({_id:list.wishlist_id}, {$set:{
                     name:list.name,
                     description: list.description,
                     updatedOn: new Date()}});               
@@ -252,8 +296,8 @@ Meteor.methods({
         }
         else {
             //console.log(Tables.findOne({_id:table._id}));
-            if (Tables.findOne({_id:table._id}).userID = Meteor.userId()){
-                Tables.update({_id:table._id}, {$set:{
+            if (Tables.findOne({_id:table.table_id}).userID = Meteor.userId()){
+                Tables.update({_id:table.table_id}, {$set:{
                     name:table.name,
                     description: table.description,
                     updatedOn: new Date()}});               
@@ -274,20 +318,18 @@ Meteor.methods({
             return;
         }
         else if(Meteor.user().username == "admin"){
-            //console.log(Wishlists.findOne({_id:list._id}));
-            if (Products.findOne({_id:product._id})){
-               Products.update({_id:product._id}, {$set:{
+            if (Products.findOne({_id:product.product_id})){
+                Products.update({_id:product.product_id}, {$set:{
                     name:product.name,
                     brand:product.brand,
                     abbre: product.abbre,
                     description: product.description,
-                    imgaddress: product.imgaddress,
                     category: product.category,
                     price: product.price,
                     updatedBy: Meteor.user().username,
                     updatedOn: new Date()}});               
             }
         }
-        $('#admineditproductform').addClass("hidden");
+        // $("#admineditproductform").addClass("hidden");
     }
 })

@@ -29,3 +29,5 @@ aldeed:autoform@=5.5.0
 ian:accounts-ui-bootstrap-3
 momentjs:moment
 hinas:meteor-bootstrap-confirmation
+barbatus:stars-rating
+fortawesome:fontawesome

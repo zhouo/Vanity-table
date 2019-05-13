@@ -35,24 +35,24 @@ makeupliplist = [{label:"Lip Stick", value : "Lip Stick"},
         {label:"Lipliner", value: "Lipliner"},
         ]
 Products.attachSchema(new SimpleSchema({
-    _id: {
-      type: String,
-      autoform:{
-        type: "hidden",
-        label: false
-      },
+    product_id: {
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
     optional: true,
     defaultValue: ""
-    },
+  },
     name: {
         type: String,
         label: "Name",
-        max: 200
+        max: 50
     },
     brand: {
     	type: String,
     	label: "Brand",
-    	max: 200
+    	max: 20
     },
     abbre: {
       type: String,
@@ -130,11 +130,6 @@ Products.attachSchema(new SimpleSchema({
         defaultValue: '0'
     },
 
-    imgaddress: {
-    type: String,  
-    label: "Image Address",    
-    defaultValue: ""
-  },
     createdBy:{
       type: String,
       autoform: {
@@ -175,7 +170,7 @@ Products.attachSchema(new SimpleSchema({
 }));
 
 Wishlists.attachSchema(new SimpleSchema({
-  _id: {
+  wishlist_id: {
     type: String,
     autoform:{
       type: "hidden",
@@ -258,7 +253,7 @@ Wishlists.attachSchema(new SimpleSchema({
 }))
 
 Tables.attachSchema(new SimpleSchema({
-  _id: {
+  table_id: {
     type: String,
     autoform:{
       type: "hidden",
@@ -336,4 +331,66 @@ Tables.attachSchema(new SimpleSchema({
     type: String,
     optional: true,
   }
+}))
+
+Reviews.attachSchema(new SimpleSchema({
+  product_id: {
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: ""
+  },
+  title:{
+    type: String,
+    label: "Title",
+    max: 50
+  },
+  text:{
+    type:String,
+    autoform:{
+      type: "textarea",
+      label: "Content",
+      rows: 8
+    }   
+  },
+  user_id: {
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: ""
+  },
+  rating: {
+    type: Number,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: 0
+  },
+  createdBy:{
+    type: String,
+    autoform:{
+      type: "hidden",
+      label: false
+    },
+    optional: true,
+    defaultValue: ""
+  },
+  createdOn:{
+    type: Date,
+    autoform:{
+      type:"hidden",
+      label:false
+    },
+    optional: true,
+    defaultValue: new Date()
+  }
+
 }))
