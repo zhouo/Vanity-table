@@ -111,7 +111,6 @@ Products.attachSchema(new SimpleSchema({
       label: "Price",
       defaultValue: 0
     },
-
     tableId: {
         type: String,
         autoform: {

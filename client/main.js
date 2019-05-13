@@ -44,14 +44,6 @@ Template.productsontableheader.helpers({
     }
 })
 
-Template.showUsers.helpers({
-    user:function(){
-        if (Meteor.user().username == "admin"){
-            return Meteor.users.find();
-        }
-    }
-})
-
 Template.showTables.helpers({
     tables:function(){
         if (Meteor.user()){        
@@ -105,15 +97,15 @@ Template.adminProducts.helpers({
 
 Template.adminProducts.events({
     'click .js-toggle-insertproductform':function(){
-        $("#insertproductform").removeClass("hidden");
-        $('#admineditproductform').addClass("hidden");
+        $("#insertproductform").toggle();
+        $('#admineditproductform').toggle(false);
     }    
 
 });
 
 Template.EditProduct.events({
     'click .js-hide-admineditproductform':function(){
-        $('#admineditproductform').addClass("hidden");
+        $('#admineditproductform').toggle(false);
     }
 })
 
@@ -131,8 +123,8 @@ Template.EditProduct.helpers({
 Template.productItem.events({
     'click .js-toggle-admin-editproductform':function(){
         Session.set("productId",this._id);
-        $("#admineditproductform").removeClass("hidden");
-        $("#insertproductform").addClass("hidden");
+        $("#admineditproductform").toggle();
+        $("#insertproductform").toggle(false);
     },
     'click .js-admin-delete-product':function(){
         var r = confirm("Are you sure to delete this list");
@@ -151,7 +143,7 @@ Template.productItem.events({
 
 Template.showTables.events({
     'click .js-toggle-tableform':function(){
-        $( "#inserttableform" ).removeClass("hidden");
+        $( "#inserttableform" ).toggle();
     },    
 });
 
@@ -160,32 +152,33 @@ Template.showTables.events({
 
 Template.showWishlists.events({
     'click .js-toggle-wishlistform':function(){
-        $( "#wishlistform" ).removeClass( "hidden");
+        $( "#wishlistform" ).toggle();
+        $("#editwishlistform").toggle(false)
     },
     
 });
 
 Template.InsertTable.events({
     'click .js-hide-tableform':function(){
-        $( "#inserttableform" ).addClass("hidden");
+        $( "#inserttableform" ).toggle(false);
     }
 });
 
 Template.EditTable.events({
     'click .js-hide-edittableform':function(){
-        $( "#edittableform" ).addClass("hidden");
+        $( "#edittableform" ).toggle(false);
     }
 });
 
 Template.InsertWishlist.events({
     'click .js-hide-wishlistform':function(){
-        $( "#wishlistform" ).addClass("hidden");
+        $( "#wishlistform" ).toggle(false);
     }
 });
 
 Template.EditWishlist.events({
     'click .js-hide-editwishlistform':function(){
-        $( "#editwishlistform" ).addClass("hidden");
+        $( "#editwishlistform" ).toggle(false);
     },
     // 'click .js-reset-editwishlistform':function(){
     //     $('#EditwishlistForm input[name="name"]').val("");
@@ -196,19 +189,19 @@ Template.EditWishlist.events({
 
 Template.AddtoWishlist.events({
     'click .js-hide-addtowishlistForm':function(){
-        $("#addtowishlistForm").addClass("hidden");
+        $("#addtowishlistForm").toggle(false);
     }
 });
 
 Template.AddtoTable.events({
     'click .js-hide-addtotableForm':function(){
-        $("#addtotableForm").addClass("hidden");
+        $("#addtotableForm").toggle(false);
     }
 });
 
 Template.productsOntable.events({
     'click .js-toggle-addtotableform':function(){
-        $( "#addtotableForm" ).removeClass("hidden");
+        $( "#addtotableForm").toggle();
     },
     'click #backtotables':function(){
         event.preventDefault(); 
@@ -218,12 +211,12 @@ Template.productsOntable.events({
 
 Template.productsOnwishlist.events({
     'click .js-toggle-addtowishlistform':function(){
-        $( "#addtowishlistForm" ).removeClass("hidden");
+        $( "#addtowishlistForm" ).toggle();
     },
     'click .js-toggle-showSamecategory':function(){
         Session.set("productId", this.id);
-        $( "#addtowishlistForm" ).addClass("hidden");
-        $( "#showSamecategory").removeClass("hidden");
+        $( "#addtowishlistForm" ).toggle(false);
+        $( "#showSamecategory").toggle();
 
     },
     'click .js-remove-wishlistitem':function(){
@@ -265,10 +258,10 @@ Template.WishlistItem.events({
         //console.log(Session.get("wishlistId"));
         // let list=Wishlists.findOne({_id:this._id});
         // if (list){
-        $( "#editwishlistform" ).removeClass( "hidden");
+        $( "#editwishlistform" ).toggle();
             // $('#EditwishlistForm input[name="name"]').val("list.name");
             // $('#EditwishlistForm input[name="description"]').val("description");
-        $("#wishlistform").addClass("hidden");
+        $("#wishlistform").toggle(false);
         
     }
 })
@@ -293,8 +286,8 @@ Template.tableItem.events({
         //console.log(this);
         Session.set("tableId", this._id);
         //console.log("when toggle form, the session id is",Session.get("tableId"));
-        $( "#edittableform" ).removeClass("hidden");
-        $("#inserttableform").addClass("hidden");
+        $( "#edittableform" ).toggle();
+        $("#inserttableform").toggle(false);
     }
 })
 
@@ -323,7 +316,7 @@ Template.productsOntable.helpers({
 Template.home.helpers({
     products:function(){
         Meteor.subscribe("products");
-        console.log(Products.find());
+        //console.log(Products.find());
         return Products.find();
     },
     path:function(){
@@ -791,8 +784,8 @@ Template.AddtoTableSelection.events({
         productlist.name=product.name;
         productlist.abbre = product.abbre;
         productlist.category = product.category;
-        console.log(productlist);
-        console.log(this._id)
+        //console.log(productlist);
+        //console.log(this._id)
         Meteor.call('insert-product-to-table',productlist,this._id)
         $('#table-selection').toggle(false);
     }

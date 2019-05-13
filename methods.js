@@ -42,10 +42,11 @@ Meteor.methods({
     },
 
     'addtoTable':function(product){
+        //console.log(this);
         var item = Products.findOne({"brand":product.brand,"name":product.name});
         opendate = moment(product.openedOn).format('YYYY-MM-DD');
         valid = product.validity;
-        //console.log(valid);
+        //console.log(item);
         expiredate = moment(opendate).add(valid, 'month').format();
         product.expiredOn = new Date(expiredate);
         var newproduct = new Object();
@@ -58,11 +59,11 @@ Meteor.methods({
         }
         //if the item already in product list
         else if (item){
-            //console.log("This product is already in product list");   
+            console.log("This product is already in product list");   
             newproduct.id = item._id;
             //console.log(newproduct);
             //console.log(Tables.findOne({_id: product.tableId}).productlist);
-            Tables.update({_id: Session.get("tableId")},
+            Tables.update({_id: product.tableId},
                 {$push:{'productlist': newproduct}},
                 {$set: {'updatedOn': new Date()}});
         }
@@ -74,8 +75,8 @@ Meteor.methods({
             product.createdBy = Meteor.user().username;
             Products.insert(product);
             newproduct.id = Products.findOne({"brand":product.brand,"name":product.name})._id;                  
-            console.log(Session.get("tableId"));
-            Tables.update({_id: Session.get("tableId")},
+            //console.log(Session.get("tableId"));
+            Tables.update({_id: product.tableId},
                 {$push:{'productlist': newproduct}},
                 {$set: {'updatedOn': new Date()}});
                 
@@ -97,7 +98,7 @@ Meteor.methods({
         else if (item){
             console.log("This product is already in product list");   
             newproduct.id = item._id;
-            Wishlists.update({_id: Session.get("listId")},
+            Wishlists.update({_id: product.wishlistId},
                 {$push:{'productlist': newproduct}},
                 {$set: {'updatedOn': new Date()}});
         }
@@ -114,14 +115,14 @@ Meteor.methods({
             newproduct.id = Products.findOne({"brand":product.brand,"name":product.name})._id;                  
             //console.log(newproduct);
             // console.log(Tables.findOne({_id: product.tableId}).productlist);
-            Wishlists.update({_id: Session.get("listId")},
+            Wishlists.update({_id: product.wishlistId},
                 {$push:{'productlist': newproduct}},
                 {$set: {'updatedOn': new Date()}});
                 
         }
     },
     'addreview':function(review){
-        console.log(review);
+        //console.log(review);
         if (Meteor.user()){
             Reviews.insert(review);
         }
@@ -183,7 +184,7 @@ Meteor.methods({
             FinalResult.push(brandResultobject);
             // console.log("after",l, "the finallist is" ,FinalResult);
         });
-        // console.log(FinalResult);
+        //console.log(FinalResult);
         return FinalResult;
     },
     'insertToWishlist':function(productId,wishlist_id){
@@ -213,8 +214,8 @@ Meteor.methods({
         }
     },
     'insert-table-selection':function(product){
-        console.log("function called");
-        console.log(this);
+        //console.log("function called");
+        //console.log(this);
     },
     'getUsername':function(id){
         if (Meteor.user()){

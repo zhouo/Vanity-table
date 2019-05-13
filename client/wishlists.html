@@ -9,11 +9,11 @@
                         {{/each}}
     						
     		</div>
-    		<div id="wishlistform" class="col-md-6 hidden" >
+    		<div id="wishlistform" style="display:none;" class="col-md-6" >
     			{{>InsertWishlist}}
     		</div>
 
-            <div id="editwishlistform" class="col-md-6 hidden" >
+            <div id="editwishlistform" style="display:none" class="col-md-6" >
                 {{>EditWishlist}}
             </div>
     		
@@ -107,10 +107,10 @@
                 </div> -->
     			
     		</div>
-    		<div id="addtowishlistForm" class="col-md-6 hidden">
+    		<div id="addtowishlistForm" style="display:none" class="col-md-6">
     			{{>AddtoWishlist}}	
     		</div>
-            <div id="showSamecategory" class="col-md-6 hidden">
+            <div id="showSamecategory" style="display:none"  class="col-md-6">
                 <!-- {{>SameCategory}} -->
                 <!-- <p>session id is {{sessionid}}</p> -->
                 <h3>You have {{count}} {{category}} on your tables</h3>

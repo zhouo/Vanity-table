@@ -102,7 +102,7 @@
                 <img src="/title.png" width="50%">
             </div>
             <div class="col-md-8">
-                <h1 align = "center"> {{nickname}} 's Tables </h1>
+                <h1 > {{nickname}} 's Tables </h1>
             </div>
         </div>
     </div>
@@ -234,11 +234,11 @@
             <!-- <div class="col-md-6"> -->
             <!--     <span>Place to put add product form</span>
             </div> -->
-            <div id="insertproductform" class="col-md-6 hidden" >
+            <div id="insertproductform" style="display: none;" class="col-md-6 " >
                 {{>InsertProduct}}
             </div>
 
-            <div id="admineditproductform" class="col-md-6 hidden" >
+            <div id="admineditproductform" style="display: none;" class="col-md-6 " >
                 {{>EditProduct}}
             </div>
             
@@ -384,7 +384,14 @@
             <p style="font-size: 12px"> {{posttime}}</p>
         </div>
         <div class="col-md-8" align="left" style="margin-top:20px">
-            {{>starsRating  mutable=false  rating=rating size='sm'}}
+            <div class="row">
+                <div class="col-md-4">
+                    {{>starsRating  mutable=false  rating=rating size='sm'}}
+                </div>
+                <div class="col-md-7 col-md-offset-1">
+                    <h5 style="display: inline;"> {{title}}</h5>
+                </div>
+            </div>
             <br/>
             {{text}}
         </div>

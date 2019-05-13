@@ -34,18 +34,18 @@
 24 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
 25 verbose request uri https://registry.npmjs.org/bcrypt
 26 verbose request no auth needed
-27 info attempt registry request try #1 at 8:01:56 PM
-28 verbose request id f234e4d8cab51a18
+27 info attempt registry request try #1 at 11:28:01 PM
+28 verbose request id 10aa21b156033a81
 29 verbose etag W/"46fde888bf5cab729c8f944536d650a8"
 30 verbose lastModified Sun, 14 Apr 2019 09:26:01 GMT
 31 http request GET https://registry.npmjs.org/bcrypt
 32 http 304 https://registry.npmjs.org/bcrypt
-33 verbose headers { date: 'Sat, 11 May 2019 00:01:56 GMT',
+33 verbose headers { date: 'Mon, 13 May 2019 03:28:01 GMT',
 33 verbose headers   connection: 'keep-alive',
-33 verbose headers   'set-cookie': [ '__cfduid=d704d423c80afee5de0740c43c99419961557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+33 verbose headers   'set-cookie': [ '__cfduid=d4559ac0c8e117954b999fc789dae2cff1557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 33 verbose headers   'cf-cache-status': 'HIT',
 33 verbose headers   'cache-control': 'max-age=300',
-33 verbose headers   'cf-ray': '4d4fe198ff92cedc-IAD',
+33 verbose headers   'cf-ray': '4d618a3708d45745-IAD',
 33 verbose headers   etag: '"46fde888bf5cab729c8f944536d650a8"',
 33 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 33 verbose headers   'last-modified': 'Sun, 14 Apr 2019 09:26:01 GMT',
@@ -53,12 +53,12 @@
 33 verbose headers   'x-amz-meta-rev': '490-00e4bbf337ebb7de81a1923de31df227',
 33 verbose headers   server: 'cloudflare' }
 34 silly get cb [ 304,
-34 silly get   { date: 'Sat, 11 May 2019 00:01:56 GMT',
+34 silly get   { date: 'Mon, 13 May 2019 03:28:01 GMT',
 34 silly get     connection: 'keep-alive',
-34 silly get     'set-cookie': [ '__cfduid=d704d423c80afee5de0740c43c99419961557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+34 silly get     'set-cookie': [ '__cfduid=d4559ac0c8e117954b999fc789dae2cff1557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 34 silly get     'cf-cache-status': 'HIT',
 34 silly get     'cache-control': 'max-age=300',
-34 silly get     'cf-ray': '4d4fe198ff92cedc-IAD',
+34 silly get     'cf-ray': '4d618a3708d45745-IAD',
 34 silly get     etag: '"46fde888bf5cab729c8f944536d650a8"',
 34 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 34 silly get     'last-modified': 'Sun, 14 Apr 2019 09:26:01 GMT',
@@ -179,23 +179,23 @@
 72 silly mapToRegistry uri https://registry.npmjs.org/nan
 73 verbose request uri https://registry.npmjs.org/bindings
 74 verbose request no auth needed
-75 info attempt registry request try #1 at 8:01:56 PM
+75 info attempt registry request try #1 at 11:28:01 PM
 76 verbose etag W/"8dfe34716157e36596b3ba5e5fcfb617"
 77 verbose lastModified Wed, 27 Feb 2019 22:54:48 GMT
 78 http request GET https://registry.npmjs.org/bindings
 79 verbose request uri https://registry.npmjs.org/nan
 80 verbose request no auth needed
-81 info attempt registry request try #1 at 8:01:56 PM
+81 info attempt registry request try #1 at 11:28:01 PM
 82 verbose etag W/"d9774cf846d746fcaab396a90dcaef66"
 83 verbose lastModified Sun, 24 Mar 2019 14:32:23 GMT
 84 http request GET https://registry.npmjs.org/nan
 85 http 304 https://registry.npmjs.org/bindings
-86 verbose headers { date: 'Sat, 11 May 2019 00:01:56 GMT',
+86 verbose headers { date: 'Mon, 13 May 2019 03:28:01 GMT',
 86 verbose headers   connection: 'keep-alive',
-86 verbose headers   'set-cookie': [ '__cfduid=d704d423c80afee5de0740c43c99419961557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+86 verbose headers   'set-cookie': [ '__cfduid=d4559ac0c8e117954b999fc789dae2cff1557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 86 verbose headers   'cf-cache-status': 'HIT',
 86 verbose headers   'cache-control': 'max-age=300',
-86 verbose headers   'cf-ray': '4d4fe19a1b44cedc-IAD',
+86 verbose headers   'cf-ray': '4d618a37993b5745-IAD',
 86 verbose headers   etag: '"8dfe34716157e36596b3ba5e5fcfb617"',
 86 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 86 verbose headers   'last-modified': 'Wed, 27 Feb 2019 22:54:48 GMT',
@@ -203,12 +203,12 @@
 86 verbose headers   'x-amz-meta-rev': '66-b1ca5aefc319d9a2058a07561bf4cc31',
 86 verbose headers   server: 'cloudflare' }
 87 silly get cb [ 304,
-87 silly get   { date: 'Sat, 11 May 2019 00:01:56 GMT',
+87 silly get   { date: 'Mon, 13 May 2019 03:28:01 GMT',
 87 silly get     connection: 'keep-alive',
-87 silly get     'set-cookie': [ '__cfduid=d704d423c80afee5de0740c43c99419961557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+87 silly get     'set-cookie': [ '__cfduid=d4559ac0c8e117954b999fc789dae2cff1557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 87 silly get     'cf-cache-status': 'HIT',
 87 silly get     'cache-control': 'max-age=300',
-87 silly get     'cf-ray': '4d4fe19a1b44cedc-IAD',
+87 silly get     'cf-ray': '4d618a37993b5745-IAD',
 87 silly get     etag: '"8dfe34716157e36596b3ba5e5fcfb617"',
 87 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 87 silly get     'last-modified': 'Wed, 27 Feb 2019 22:54:48 GMT',
@@ -250,12 +250,12 @@
 106 verbose correctMkdir /Users/zhouo/.npm correctMkdir not in flight; initializing
 107 verbose afterAdd /Users/zhouo/.npm/bindings/1.2.1/package/package.json written
 108 http 304 https://registry.npmjs.org/nan
-109 verbose headers { date: 'Sat, 11 May 2019 00:01:56 GMT',
+109 verbose headers { date: 'Mon, 13 May 2019 03:28:01 GMT',
 109 verbose headers   connection: 'keep-alive',
-109 verbose headers   'set-cookie': [ '__cfduid=d9b5b2f3a124324c45a734744add757201557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+109 verbose headers   'set-cookie': [ '__cfduid=d710bd3479f73890ee034a34d675b59671557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 109 verbose headers   'cf-cache-status': 'HIT',
 109 verbose headers   'cache-control': 'max-age=300',
-109 verbose headers   'cf-ray': '4d4fe19a4a3cc1f2-IAD',
+109 verbose headers   'cf-ray': '4d618a37bdf795c0-IAD',
 109 verbose headers   etag: '"d9774cf846d746fcaab396a90dcaef66"',
 109 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 109 verbose headers   'last-modified': 'Sun, 24 Mar 2019 14:32:23 GMT',
@@ -263,12 +263,12 @@
 109 verbose headers   'x-amz-meta-rev': '186-083b72552a0fb3a089a4c5cb95d68c1a',
 109 verbose headers   server: 'cloudflare' }
 110 silly get cb [ 304,
-110 silly get   { date: 'Sat, 11 May 2019 00:01:56 GMT',
+110 silly get   { date: 'Mon, 13 May 2019 03:28:01 GMT',
 110 silly get     connection: 'keep-alive',
-110 silly get     'set-cookie': [ '__cfduid=d9b5b2f3a124324c45a734744add757201557532916; expires=Sun, 10-May-20 00:01:56 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+110 silly get     'set-cookie': [ '__cfduid=d710bd3479f73890ee034a34d675b59671557718081; expires=Tue, 12-May-20 03:28:01 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
 110 silly get     'cf-cache-status': 'HIT',
 110 silly get     'cache-control': 'max-age=300',
-110 silly get     'cf-ray': '4d4fe19a4a3cc1f2-IAD',
+110 silly get     'cf-ray': '4d618a37bdf795c0-IAD',
 110 silly get     etag: '"d9774cf846d746fcaab396a90dcaef66"',
 110 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
 110 silly get     'last-modified': 'Sun, 24 Mar 2019 14:32:23 GMT',
@@ -517,42 +517,42 @@
 179 silly extract bindings@1.2.1
 180 silly extract nan@2.3.5
 181 silly extract bcrypt@0.8.7
-182 verbose unbuild node_modules/.staging/nan-7d006d38
-183 verbose unbuild node_modules/.staging/bindings-8c08e4af
-184 verbose unbuild node_modules/.staging/bcrypt-1a3a5ccc
-185 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38 is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
-186 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
-187 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
-188 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
-189 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
-190 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
-191 verbose tar unpack /Users/zhouo/.npm/nan/2.3.5/package.tgz
-192 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
-193 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38 is being purged
-194 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
-195 verbose tar unpack /Users/zhouo/.npm/bindings/1.2.1/package.tgz
-196 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
-197 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af is being purged
-198 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
-199 verbose tar unpack /Users/zhouo/.npm/bcrypt/0.8.7/package.tgz
-200 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
-201 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc is being purged
-202 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
+182 verbose unbuild node_modules/.staging/bindings-8c08e4af
+183 verbose unbuild node_modules/.staging/bcrypt-1a3a5ccc
+184 verbose unbuild node_modules/.staging/nan-7d006d38
+185 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
+186 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
+187 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
+188 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
+189 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38 is being purged from base /Users/zhouo/Documents/GitHub/Vanity-table
+190 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
+191 verbose tar unpack /Users/zhouo/.npm/bindings/1.2.1/package.tgz
+192 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
+193 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af is being purged
+194 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af
+195 verbose tar unpack /Users/zhouo/.npm/bcrypt/0.8.7/package.tgz
+196 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
+197 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc is being purged
+198 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bcrypt-1a3a5ccc
+199 verbose tar unpack /Users/zhouo/.npm/nan/2.3.5/package.tgz
+200 verbose tar unpacking to /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
+201 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38 is being purged
+202 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/nan-7d006d38
 203 silly gunzTarPerm modes [ '755', '644' ]
 204 silly gunzTarPerm modes [ '755', '644' ]
 205 silly gunzTarPerm modes [ '755', '644' ]
 206 silly gunzTarPerm extractEntry package.json
-207 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+207 silly gunzTarPerm extractEntry package.json
 208 silly gunzTarPerm extractEntry package.json
-209 silly gunzTarPerm extractEntry package.json
+209 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
 210 silly gunzTarPerm extractEntry README.md
-211 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
-212 silly gunzTarPerm extractEntry README.md
-213 silly gunzTarPerm extractEntry bindings.js
-214 silly gunzTarPerm extractEntry include_dirs.js
-215 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
-216 silly gunzTarPerm extractEntry .npmignore
-217 silly gunzTarPerm extractEntry README.md
+211 silly gunzTarPerm extractEntry bindings.js
+212 silly gunzTarPerm extractEntry .npmignore
+213 silly gunzTarPerm extractEntry README.md
+214 silly gunzTarPerm extractEntry README.md
+215 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+216 silly gunzTarPerm extractEntry include_dirs.js
+217 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
 218 silly gunzTarPerm extractEntry nan_converters.h
 219 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 420 ]
 220 silly gunzTarPerm extractEntry LICENSE.md
@@ -590,12 +590,12 @@
 252 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 420 ]
 253 silly gunzTarPerm extractEntry doc/new.md
 254 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 420 ]
-255 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af/node_modules is being purged
-256 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af/node_modules
-257 silly gunzTarPerm extractEntry doc/buffers.md
-258 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
-259 silly gunzTarPerm extractEntry doc/object_wrappers.md
-260 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 420 ]
+255 silly gunzTarPerm extractEntry doc/buffers.md
+256 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 420 ]
+257 silly gunzTarPerm extractEntry doc/object_wrappers.md
+258 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 420 ]
+259 silly gentlyRm /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af/node_modules is being purged
+260 verbose gentlyRm don't care about contents; nuking /Users/zhouo/Documents/GitHub/Vanity-table/node_modules/.staging/bindings-8c08e4af/node_modules
 261 silly gunzTarPerm extractEntry doc/persistent.md
 262 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 420 ]
 263 silly gunzTarPerm extractEntry doc/scopes.md

@@ -11,8 +11,8 @@
   	</fieldset>
   	<button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <button class="btn btn-danger js-hide-insertproductform">Close</button>
-  	{{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-insertproductform">Close</button>
+ -->  	{{/autoForm}}
  </template>
 
  <template name="EditProduct">
@@ -29,8 +29,8 @@
     </fieldset>
     <button type="submit" class="btn btn-primary">Edit</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <button class="btn btn-danger js-hide-admineditproductform">Close</button>
-  {{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-admineditproductform">Close</button>
+ -->  {{/autoForm}}
 </template>
 
 <template name="InsertTable">
@@ -43,8 +43,8 @@
     </fieldset>
     <button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <button class="btn btn-danger js-hide-tableform">Close</button>
-  {{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-tableform">Close</button>
+ -->  {{/autoForm}}
 </template>
 
 <template name="EditTable">
@@ -58,8 +58,8 @@
     </fieldset>
     <button type="submit" class="btn btn-success">Submit</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <button class="btn btn-danger js-hide-edittableform">Close</button>
-  {{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-edittableform">Close</button>
+ -->  {{/autoForm}}
 </template>
 
 <template name="InsertWishlist">
@@ -72,8 +72,8 @@
     </fieldset>
     <button type="submit" class="btn btn-success">Add</button>
     <button type="reset" class="btn btn-primary">Reset</button>
-    <button class="btn btn-danger js-hide-wishlistform">Close</button>
-  {{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-wishlistform">Close</button>
+ -->  {{/autoForm}}
 </template>
 
 <template name="EditWishlist">
@@ -87,8 +87,8 @@
     </fieldset>
     <button type="submit" class="btn btn-success">Submit</button>
     <button type="reset" class="btn btn-primary js-reset-editwishlistform">Reset</button>
-    <button class="btn btn-danger js-hide-editwishlistform">Close</button>
-  {{/autoForm}}
+<!--     <button class="btn btn-danger js-hide-editwishlistform">Close</button>
+ -->  {{/autoForm}}
 </template>
 
 
@@ -103,12 +103,14 @@
     	{{> afQuickField name='brand'}}
     	{{> afQuickField name='abbre'}}
     	{{> afQuickField name='category'}}
-    	{{> afQuickField name='price'}}    
+    	{{> afQuickField name='price'}}
+    	{{> afQuickField name='wishlistId' value=_id type="hidden"}}
+    
   	</fieldset>
   	<button type="submit" class="btn btn-success">Add</button>
   	<button type="reset" class="btn btn-primary">Reset</button>
-  	<button class="btn btn-danger js-hide-addtowishlistForm">Close</button>
-	{{/autoForm}}
+<!--   	<button class="btn btn-danger js-hide-addtowishlistForm">Close</button>
+ -->	{{/autoForm}}
 </template>
 
 <template name="AddtoTable">
@@ -121,11 +123,10 @@
     	{{> afQuickField name='category'}}
     	{{> afQuickField name='openedOn'}}
     	{{> afQuickField name='validity'}}
-    	{{> afQuickField name='tableId' value=_id type="hidden"}}  
+    	{{> afQuickField name='tableId' value=_id type="hidden"}}
   	</fieldset>
   	<button type="submit" class="btn btn-primary">Add</button>
   	<button type="reset" class="btn btn-primary">Reset</button>
-  	<button class="btn btn-danger js-hide-addtotableForm">Close</button>
 	{{/autoForm}}
 </template>
 
